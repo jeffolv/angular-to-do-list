@@ -1,7 +1,11 @@
-<div class="card">
-  <h2>Titulo da Atividade</h2>
-  <p>Descrição qualquer...</p>
-  <button>Apagar</button>
-</div>
+<ng-container *ngFor="let atividade of atividades">
+  <div class="card">
+    <h2>{{ atividade.tituloAtividade }}</h2>
+    <p>{{ atividade.descricaoAtividade }}</p>
+    <button>Apagar</button>
+  </div>
+</ng-container>
+
+
 
 

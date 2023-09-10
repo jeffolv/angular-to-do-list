@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Atividade } from './atividade';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'to-do-list';
+  atividades:Atividade[] = [];
+
+  constructor() {
+    console.log(this.atividades);
+  }
+
+  criarAtividadesParaCard(atividades: Atividade[]){
+    this.atividades = atividades;
+  }
 }
+  

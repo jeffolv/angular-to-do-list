@@ -1,13 +1,18 @@
 <div class="container">
-  <form (ngSubmit)="criarAtividade()">
+  <h2>{{ title }}</h2>
+  <form (ngSubmit)="criarAtividades()">
     <input
       type="text"
       placeholder="Título da Atividade"
+      [(ngModel)]="titulo"
+      name="Titulo da Atividade"
     >
 
     <input
       type="text"
       placeholder="Descrição"
+      [(ngModel)]="descricao"
+      name="Descrição"
     >
 
     <button type="submit">Criar Atividade</button>

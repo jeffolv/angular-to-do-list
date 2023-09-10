@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Atividade } from 'src/app/atividade';
 
 @Component({
   selector: 'app-formulario',
@@ -7,11 +8,32 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
-  tituloAtividade: string = "";
+  titulo: string = "";
   descricao:string = "";
+  arrayAtividade:Atividade[] = [];
+  @Input()
+  title:string = "";
+  @Output()
+  atividadesEmitidas = new EventEmitter <Atividade[]> ();
 
-  criarAtividade() {
-    console.log("Criar Atividade");
+  emitirAtividades() {
+    this.atividadesEmitidas.emit(this.arrayAtividade);
+    this.resetarAtividades();
+  }
+
+  criarAtividades() {
+    this.arrayAtividade.push({
+      tituloAtividade: this.titulo,
+      descricaoAtividade: this.descricao
+    });
+
+    this.emitirAtividades();
+
+  }
+
+  resetarAtividades() {
+    this.titulo = "";
+    this.descricao = "";
   }
 
   constructor() { }

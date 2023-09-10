@@ -1,5 +1,8 @@
 <app-header></app-header>
-<app-formulario></app-formulario>
+<app-formulario
+  (atividadesEmitidas)="criarAtividadesParaCard($event)"
+  >
+</app-formulario>
 <hr>
-<app-card></app-card>
+<app-card [atividades]="atividades"></app-card>
 
